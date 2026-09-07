@@ -10,15 +10,19 @@ import {
   ShieldCheck, 
   HelpCircle,
   Clock,
-  UserCheck
+  UserCheck,
+  CheckCircle2,
+  Headphones
 } from 'lucide-react';
+import { CONVERSATIONAL_TUTORS } from '../data/ecosystemData';
 
 export const PracticeModule: React.FC = () => {
   const [selectedPrompt, setSelectedPrompt] = useState<string>(
     '¿Cómo puedo mediar en el rincón de juego simbólico sin imponer un guion ni cortar la iniciativa de los niños?'
   );
+  const [selectedTutorId, setSelectedTutorId] = useState<string>('tutor-1');
 
-  const elevenLabsUrl = "https://elevenlabs.io/app/talk-to?agent_id=agent_5101m1derdrkfrat3tasd64gymcd&branch_id=agtbrch_7401m1derfvveh2aq9h2vg2ar51a";
+  const activeTutor = CONVERSATIONAL_TUTORS.find(t => t.id === selectedTutorId) || CONVERSATIONAL_TUTORS[0];
   const heyGenUrl = "https://app.heygen.com/videos/v-deo-de-avatar-905680d2ef264886942d59a93cbc87dc";
 
   const samplePrompts = [
@@ -92,23 +96,76 @@ export const PracticeModule: React.FC = () => {
                       Tutor Conversacional IA
                     </h3>
                     <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">
-                      Agente de Voz & Texto en ElevenLabs
+                      4 Agentes de Voz & Texto en ElevenLabs
                     </p>
                   </div>
                 </div>
 
                 <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
-                  Agente Activo
+                  4 Agentes Activos
                 </span>
               </div>
 
               {/* Explicación Pedagógica del Agente */}
               <div className="p-5 rounded-[24px] bg-slate-50 border border-slate-200 space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
                 <span className="font-black text-indigo-950 uppercase text-xs block tracking-wide">
-                  Rol Formativo del Agente Inteligente:
+                  Rol Formativo de los Agentes Inteligentes:
                 </span>
                 <p>
-                  Diseñado como un <strong>andamiaje cognitivo continuo</strong> para docentes y familias. Permite consultar estrategias en tiempo real, resolver dudas sobre adaptación curricular ante casos de TEA, formular preguntas abiertas para rincones y recibir orientaciones lúdicas sustentadas en el compendio de la Tarea 2.
+                  Ecosistema de <strong>andamiaje cognitivo continuo</strong> para docentes y familias. Cuenta con 4 agentes conversacionales por voz y texto especializados en mediación constructivista, juego simbólico, adaptaciones para neurodiversidad (TEA), lenguaje y psicomotricidad, sustentados en el compendio de la Tarea 2.
+                </p>
+              </div>
+
+              {/* Selector de los 4 Tutores */}
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-black uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                    <Headphones className="w-4 h-4 text-indigo-600" />
+                    Seleccionar Tutor Conversacional:
+                  </span>
+                  <span className="text-[11px] font-black uppercase tracking-wider text-indigo-600">
+                    4 Tutores
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                  {CONVERSATIONAL_TUTORS.map((tutor) => {
+                    const isSelected = tutor.id === selectedTutorId;
+                    return (
+                      <button
+                        key={tutor.id}
+                        type="button"
+                        onClick={() => setSelectedTutorId(tutor.id)}
+                        className={`p-3 rounded-2xl text-center transition-all border-2 flex flex-col items-center justify-center gap-0.5 ${
+                          isSelected
+                            ? 'bg-indigo-600 border-indigo-600 text-white shadow-md shadow-indigo-200'
+                            : 'bg-slate-50 border-slate-200 text-slate-700 hover:bg-slate-100'
+                        }`}
+                      >
+                        <span className="text-xs font-black uppercase tracking-wider">
+                          {tutor.shortName}
+                        </span>
+                        <span className={`text-[10px] font-bold ${isSelected ? 'text-indigo-100' : 'text-slate-500'}`}>
+                          {tutor.badge}
+                        </span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Ficha Descriptiva del Tutor Activo */}
+              <div className="p-4 rounded-2xl bg-indigo-50/70 border border-indigo-200 space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <h4 className="text-xs font-black text-indigo-950 uppercase tracking-wide flex items-center gap-1.5">
+                    <Bot className="w-4 h-4 text-indigo-600" />
+                    {activeTutor.name}
+                  </h4>
+                  <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-indigo-200 text-indigo-900">
+                    {activeTutor.badge}
+                  </span>
+                </div>
+                <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                  {activeTutor.focus}
                 </p>
               </div>
 
@@ -148,10 +205,10 @@ export const PracticeModule: React.FC = () => {
               </div>
             </div>
 
-            {/* Prominent ElevenLabs Button as requested */}
-            <div className="pt-4 border-t border-slate-100 space-y-2">
+            {/* Prominent Action Button for Active Tutor & Direct Links to all 4 */}
+            <div className="pt-4 border-t border-slate-100 space-y-3">
               <a
-                href={elevenLabsUrl}
+                href={activeTutor.url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group w-full py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-black text-sm sm:text-base flex items-center justify-center gap-3 shadow-lg shadow-indigo-200 hover:shadow-xl transition-all hover:scale-[1.01] active:scale-[0.99] uppercase tracking-wider"
@@ -159,13 +216,34 @@ export const PracticeModule: React.FC = () => {
                 <div className="w-8 h-8 rounded-xl bg-white/20 flex items-center justify-center">
                   <Volume2 className="w-4 h-4 text-white" />
                 </div>
-                <span>Interactuar con el Tutor IA en ElevenLabs</span>
+                <span>Hablar con {activeTutor.shortName} en ElevenLabs</span>
                 <ExternalLink className="w-5 h-5 text-white/80 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <p className="text-center text-[11px] text-slate-400 truncate font-mono">
-                Agent ID: agent_5101m1derdrkfrat3tasd64gymcd
+                Agent ID: {activeTutor.agentId}
               </p>
+
+              {/* Quick direct access to each tutor */}
+              <div className="pt-2 border-t border-slate-100 space-y-2">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 block text-center">
+                  Enlaces directos a los 4 tutores en ElevenLabs:
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                  {CONVERSATIONAL_TUTORS.map((tut) => (
+                    <a
+                      key={tut.id}
+                      href={tut.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3 py-2.5 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 text-slate-700 hover:text-indigo-950 text-xs font-bold flex items-center justify-between transition-all group"
+                    >
+                      <span className="truncate">{tut.shortName}</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600 shrink-0 ml-1" />
+                    </a>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 

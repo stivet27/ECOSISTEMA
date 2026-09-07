@@ -73,7 +73,7 @@ export const OFFICIAL_LINKS: OfficialLink[] = [
     name: 'Compendio Académico Completo (PDF)',
     task: 'Tarea 2: Documento Científico',
     platform: 'Google Drive / Repositorio UNEMI',
-    url: 'https://drive.google.com/file/d/1_compendio_academico_tarea2_unemi/view?usp=sharing',
+    url: 'https://drive.google.com/file/d/1tLATSIPBFyBaCqSOhGiZAwEmc2GFjsWy/view?usp=sharing',
     status: 'Acceso Público Verificado',
     protocol: 'HTTPS',
     pedagogicalRole: 'Fundamentación pedagógica rigurosa con citas IEEE, investigación de aula y anexos.',
@@ -81,13 +81,13 @@ export const OFFICIAL_LINKS: OfficialLink[] = [
   },
   {
     id: 't3-elevenlabs',
-    name: 'Tutor Conversacional Inteligente',
+    name: 'Tutores Conversacionales Inteligentes (4 Agentes)',
     task: 'Tarea 3: Interacción Guiada',
     platform: 'ElevenLabs Conversational AI',
     url: 'https://elevenlabs.io/app/talk-to?agent_id=agent_5101m1derdrkfrat3tasd64gymcd&branch_id=agtbrch_7401m1derfvveh2aq9h2vg2ar51a',
     status: 'Acceso Público Verificado',
     protocol: 'HTTPS',
-    pedagogicalRole: 'Andamiaje dialógico en tiempo real para docentes y familias sobre estrategias de juego.',
+    pedagogicalRole: 'Andamiaje dialógico en tiempo real con 4 agentes especializados para docentes y familias.',
     iconName: 'Bot'
   },
   {
@@ -100,6 +100,60 @@ export const OFFICIAL_LINKS: OfficialLink[] = [
     protocol: 'HTTPS',
     pedagogicalRole: 'Transposición didáctica y modelado audiovisual guiado para la implementación en el aula.',
     iconName: 'Video'
+  }
+];
+
+export interface ConversationalTutor {
+  id: string;
+  name: string;
+  shortName: string;
+  agentId: string;
+  branchId: string;
+  url: string;
+  focus: string;
+  badge: string;
+}
+
+export const CONVERSATIONAL_TUTORS: ConversationalTutor[] = [
+  {
+    id: 'tutor-1',
+    name: 'Tutor 1: Andamiaje Pedagógico General',
+    shortName: 'Tutor 1',
+    agentId: 'agent_5101m1derdrkfrat3tasd64gymcd',
+    branchId: 'agtbrch_7401m1derfvveh2aq9h2vg2ar51a',
+    url: 'https://elevenlabs.io/app/talk-to?agent_id=agent_5101m1derdrkfrat3tasd64gymcd&branch_id=agtbrch_7401m1derfvveh2aq9h2vg2ar51a',
+    focus: 'Orientación pedagógica integral, mediación constructivista y andamiaje dialógico sobre el compendio académico.',
+    badge: 'Tutor 1'
+  },
+  {
+    id: 'tutor-2',
+    name: 'Tutor 2: Juego Simbólico & Mediación',
+    shortName: 'Tutor 2',
+    agentId: 'agent_7101m1x4cmysf5c984x1qyfv9kdk',
+    branchId: 'agtbrch_0301m1x4cp1ffnnvjkqatmgjzkag',
+    url: 'https://elevenlabs.io/app/talk-to?agent_id=agent_7101m1x4cmysf5c984x1qyfv9kdk&branch_id=agtbrch_0301m1x4cp1ffnnvjkqatmgjzkag',
+    focus: 'Especialista en juego simbólico, formulación de hipótesis cognitivas y diseño de rincones temáticos sin guiones rígidos.',
+    badge: 'Tutor 2'
+  },
+  {
+    id: 'tutor-3',
+    name: 'Tutor 3: Inclusión & Neurodiversidad (TEA)',
+    shortName: 'Tutor 3',
+    agentId: 'agent_8401m1x4tj3zfvnajcrk1eq8jvbh',
+    branchId: 'agtbrch_6101m1x4tk5mfgyv90h81qtgg0rb',
+    url: 'https://elevenlabs.io/app/talk-to?agent_id=agent_8401m1x4tj3zfvnajcrk1eq8jvbh&branch_id=agtbrch_6101m1x4tk5mfgyv90h81qtgg0rb',
+    focus: 'Adaptaciones metodológicas diferenciadas, andamiaje social, apoyos visuales y reducción de ansiedad en circuitos lúdicos.',
+    badge: 'Tutor 3'
+  },
+  {
+    id: 'tutor-4',
+    name: 'Tutor 4: Didáctica del Lenguaje & Psicomotricidad',
+    shortName: 'Tutor 4',
+    agentId: 'agent_3001m1x51xqhe13scfvjafmxjxhn',
+    branchId: 'agtbrch_0701m1x51zygf1z9w9ykwwne2qjx',
+    url: 'https://elevenlabs.io/app/talk-to?agent_id=agent_3001m1x51xqhe13scfvjafmxjxhn&branch_id=agtbrch_0701m1x51zygf1z9w9ykwwne2qjx',
+    focus: 'Estrategias de conciencia fonológica, alfabetización emergente, rotación de roles y coordinación visomotriz.',
+    badge: 'Tutor 4'
   }
 ];
 
