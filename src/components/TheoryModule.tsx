@@ -26,7 +26,7 @@ export const TheoryModule: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'axes' | 'activities' | 'compendio'>('axes');
 
   const canvaUrl = "https://canva.link/mlo6gw9lf2nk2fi";
-
+  const compendioDriveUrl = "https://drive.google.com/file/d/1tLATSIPBFyBaCqSOhGiZAwEmc2GFjsWy/view?usp=sharing";
   const currentAxis = PEDAGOGICAL_AXES.find(a => a.id === activeAxisId) || PEDAGOGICAL_AXES[0];
 
   return (
@@ -116,7 +116,7 @@ export const TheoryModule: React.FC = () => {
                   <FileText className="w-6 h-6" />
                 </div>
                 <span className="text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200">
-                  Documento Científico (25 Págs)
+                  Google Drive (PDF 25 Págs)
                 </span>
               </div>
 
@@ -131,7 +131,7 @@ export const TheoryModule: React.FC = () => {
 
             <div className="pt-4 border-t border-slate-100 space-y-2.5">
               <a
-                href={canvaUrl}
+                href={compendioDriveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group w-full py-4 px-5 rounded-2xl bg-[#34D399] hover:bg-emerald-500 text-slate-950 font-black text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-200 transition-all hover:scale-[1.01] uppercase tracking-wider"
@@ -141,7 +141,7 @@ export const TheoryModule: React.FC = () => {
                 <ExternalLink className="w-4 h-4 text-slate-900/80 group-hover:translate-x-0.5 transition-transform" />
               </a>
               <p className="text-[11px] text-center text-slate-400 truncate font-mono">
-                {canvaUrl}
+                {compendioDriveUrl}
               </p>
               <button
                 type="button"
