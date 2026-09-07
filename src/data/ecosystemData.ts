@@ -73,7 +73,7 @@ export const OFFICIAL_LINKS: OfficialLink[] = [
     name: 'Compendio Académico Completo (PDF)',
     task: 'Tarea 2: Documento Científico',
     platform: 'UNEMI Posgrados Repo',
-    url: '#compendio-visor',
+    url: 'https://canva.link/mlo6gw9lf2nk2fi',
     status: 'Acceso Público Verificado',
     protocol: 'HTTPS',
     pedagogicalRole: 'Fundamentación pedagógica rigurosa con citas IEEE, investigación de aula y anexos.',

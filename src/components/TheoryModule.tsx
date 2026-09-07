@@ -129,19 +129,28 @@ export const TheoryModule: React.FC = () => {
               </p>
             </div>
 
-            <div className="pt-4 border-t border-slate-100 space-y-2">
-              <button
-                type="button"
-                onClick={() => setShowCompendioModal(true)}
+            <div className="pt-4 border-t border-slate-100 space-y-2.5">
+              <a
+                href={canvaUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group w-full py-4 px-5 rounded-2xl bg-[#34D399] hover:bg-emerald-500 text-slate-950 font-black text-sm flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-200 transition-all hover:scale-[1.01] uppercase tracking-wider"
               >
                 <BookOpen className="w-4 h-4" />
                 <span>Leer Compendio Académico en Pantalla</span>
-                <Maximize2 className="w-4 h-4 text-slate-900/80 group-hover:translate-x-0.5 transition-transform" />
-              </button>
-              <p className="text-[11px] text-center text-slate-400 font-medium">
-                Disponible para lectura interactiva y descarga / impresión
+                <ExternalLink className="w-4 h-4 text-slate-900/80 group-hover:translate-x-0.5 transition-transform" />
+              </a>
+              <p className="text-[11px] text-center text-slate-400 truncate font-mono">
+                {canvaUrl}
               </p>
+              <button
+                type="button"
+                onClick={() => setShowCompendioModal(true)}
+                className="w-full py-1.5 px-3 text-xs font-bold text-slate-500 hover:text-emerald-700 flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <Maximize2 className="w-3.5 h-3.5" />
+                <span>O abrir visor de lectura integrado en pantalla</span>
+              </button>
             </div>
           </div>
 
