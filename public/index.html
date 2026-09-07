@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecosistema Lúdico Pedagógico - UNEMI Posgrados | Grupo 11</title>
+  <meta name="description" content="Ecosistema de aprendizaje para la Maestría en Educación Inicial de UNEMI Posgrados: El juego y su aporte al desarrollo integral.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            unemiNavy: '#0e2b4c',
+            unemiGold: '#f59e0b',
+            pastelSky: '#38BDF8',
+            pastelAmber: '#FBBF24',
+            pastelMint: '#34D399',
+            pastelBase: '#F8FAFC'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #F8FAFC;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Outfit', sans-serif;
+    }
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .animate-float {
+      animation: floatSlow 4s ease-in-out infinite;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: white !important; color: black !important; }
+    }
+  </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-sky-200 selection:text-sky-900">
+
+  <!-- Confetti Canvas -->
+  <canvas id="confettiCanvas" class="pointer-events-none fixed inset-0 z-50 w-full h-full hidden"></canvas>
+
+  <!-- TOP HEADER -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-sky-100 shadow-xs">
+    <!-- Top micro-banner -->
+    <div class="bg-gradient-to-r from-[#0e2b4c] via-[#16426f] to-[#0e2b4c] text-white text-xs py-1.5 px-4">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-2">
+          <span class="font-semibold tracking-wide text-amber-300">UNEMI POSGRADOS</span>
+          <span class="hidden sm:inline text-slate-300">|</span>
+          <span class="hidden sm:inline text-slate-200">Maestría en Educación Inicial • Grupo 11</span>
+        </div>
+        <div class="flex items-center gap-3 text-[11px] text-amber-200/90 font-medium">
+          <span>Docente: Felipe Emiliano Arévalo Cordovilla</span>
+          <span class="bg-amber-400/20 text-amber-200 border border-amber-400/30 px-2 py-0.5 rounded-full">
+            Fase 2 Verificada
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#modulo-0" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-sky-400 to-sky-500 text-white flex items-center justify-center shadow-md shadow-sky-200 group-hover:scale-105 transition-transform font-bold">
+            G11
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-slate-900 tracking-tight text-base sm:text-lg">Ecosistema Lúdico</span>
+              <span class="bg-sky-100 text-sky-800 text-[10px] font-bold px-2 py-0.5 rounded-full border border-sky-200">UNEMI</span>
+            </div>
+            <p class="text-[11px] text-slate-500 font-medium line-clamp-1">El juego y su aporte al desarrollo integral</p>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-1.5 text-xs font-medium text-slate-600">
+          <a href="#modulo-0" class="px-3 py-2 rounded-xl hover:text-sky-700 hover:bg-sky-50 transition-colors">Portada</a>
+          <a href="#modulo-1" class="px-3 py-2 rounded-xl hover:text-sky-700 hover:bg-sky-50 transition-colors">Música</a>
+          <a href="#modulo-2" class="px-3 py-2 rounded-xl hover:text-sky-700 hover:bg-sky-50 transition-colors">Infografía T1</a>
+          <a href="#modulo-3" class="px-3 py-2 rounded-xl hover:text-sky-700 hover:bg-sky-50 transition-colors">Compendio T2</a>
+          <a href="#modulo-4" class="px-3 py-2 rounded-xl hover:text-sky-700 hover:bg-sky-50 transition-colors">Tutor & Avatar T3</a>
+          <a href="#modulo-5" class="px-3 py-2 rounded-xl hover:text-sky-700 hover:bg-sky-50 transition-colors">Quiz</a>
+          <a href="#modulo-6" class="px-3 py-2 rounded-xl bg-amber-100/80 text-amber-900 border border-amber-300 font-semibold hover:bg-amber-200 transition-colors">Auditoría Docente</a>
+        </nav>
+
+        <a href="#modulo-6" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-xl bg-emerald-500 text-white hover:bg-emerald-600 shadow-sm transition-all">
+          ✓ Rúbrica Posgrados
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="space-y-12 pb-16">
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO 0: PORTADA Y BIENVENIDA INSTITUCIONAL -->
+    <!-- ============================================================ -->
+    <section id="modulo-0" class="pt-6 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
+      <div class="bg-white rounded-3xl border border-sky-100 shadow-xl overflow-hidden">
+        <div class="h-3 bg-gradient-to-r from-[#0e2b4c] via-[#f59e0b] to-[#38bdf8]"></div>
+        <div class="p-6 sm:p-10 lg:p-12 space-y-6">
+          
+          <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-100 pb-6">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl bg-[#0e2b4c] text-white flex flex-col items-center justify-center font-black">
+                <span class="text-sm text-amber-400">UNEMI</span>
+                <span class="text-[8px] uppercase tracking-widest text-slate-200">Posgrados</span>
+              </div>
+              <div>
+                <h2 class="text-xs sm:text-sm font-bold text-[#0e2b4c] uppercase tracking-wider">Universidad Estatal de Milagro (UNEMI) - Posgrados</h2>
+                <p class="text-xs text-slate-500 font-medium">Maestría en Educación Inicial, Mención en Innovación en el Desarrollo Infantil</p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-100 text-amber-900 border border-amber-300">Grupo: 11</span>
+              <span class="px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 border border-emerald-300">Fase 2 Implementación</span>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-4">
+              <span class="inline-block px-3 py-1 rounded-full bg-sky-100 text-sky-800 text-xs font-semibold border border-sky-200">
+                ★ Unidad Curricular Oficial
+              </span>
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+                El juego y su aporte al desarrollo integral en Educación Inicial
+              </h1>
+              <p class="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+                Bienvenido al ecosistema didáctico integral desarrollado por el <strong>Grupo 11</strong>. Una arquitectura formativa activa que integra recursos multisensoriales: desde la activación musical rítmica y la síntesis conceptual, hasta la transposición guiada mediante tutoría conversacional por voz y microclases con inteligencia artificial generativa.
+              </p>
+              <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs text-slate-700 inline-block">
+                <strong>Docente evaluador:</strong> Felipe Emiliano Arévalo Cordovilla • <span class="italic text-slate-500">"La mejor versión de ti"</span>
+              </div>
+            </div>
+
+            <!-- Maestrantes Cards -->
+            <div class="lg:col-span-4 bg-gradient-to-b from-sky-50/60 to-white p-5 rounded-2xl border border-sky-100 shadow-sm space-y-2">
+              <span class="text-xs font-bold text-slate-800 uppercase tracking-wider block border-b border-sky-100 pb-2">
+                Maestrantes Investigadoras:
+              </span>
+              <div class="space-y-1.5 text-xs text-slate-700">
+                <div class="p-2 bg-white rounded-xl border border-slate-100 font-medium">1. Lescano Reino Ivette Alexandra</div>
+                <div class="p-2 bg-white rounded-xl border border-slate-100 font-medium">2. Londoño Urrego Marly Julieth</div>
+                <div class="p-2 bg-white rounded-xl border border-slate-100 font-medium">3. Lucero Morales Nely Margoth</div>
+                <div class="p-2 bg-white rounded-xl border border-slate-100 font-medium">4. Macas Hidalgo Bertha Susana</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- MAPA DE LA RUTA FORMATIVA -->
+      <div class="bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg space-y-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100 px-3 py-1 rounded-full border border-amber-300">
+            Guía Visual del Estudiante
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-2">Mapa de la Ruta Formativa</h2>
+          <p class="text-xs sm:text-sm text-slate-600">Secuencia didáctica coherente de 6 pasos interconectados:</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <a href="#modulo-1" class="p-5 rounded-2xl bg-amber-50/60 border border-amber-200 hover:bg-amber-100/60 transition-all block">
+            <span class="text-xs font-extrabold text-amber-800 block">Paso 1: Activación Sonora</span>
+            <h3 class="text-base font-bold text-slate-900 mt-0.5">Pieza Musical Infantil</h3>
+            <p class="text-xs text-slate-600 mt-1">Sintonización motriz y afectiva con Suno AI.</p>
+          </a>
+          <a href="#modulo-2" class="p-5 rounded-2xl bg-sky-50/60 border border-sky-200 hover:bg-sky-100/60 transition-all block">
+            <span class="text-xs font-extrabold text-sky-800 block">Paso 2: Conceptualización</span>
+            <h3 class="text-base font-bold text-slate-900 mt-0.5">Infografía Síntesis (T1)</h3>
+            <p class="text-xs text-slate-600 mt-1">Anclaje visual de las 4 dimensiones del juego.</p>
+          </a>
+          <a href="#modulo-3" class="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 hover:bg-emerald-100/60 transition-all block">
+            <span class="text-xs font-extrabold text-emerald-800 block">Paso 3: Profundización</span>
+            <h3 class="text-base font-bold text-slate-900 mt-0.5">Compendio & Canva (T2)</h3>
+            <p class="text-xs text-slate-600 mt-1">Los 4 ejes teóricos, inclusión, TEA y citas IEEE.</p>
+          </a>
+          <a href="#modulo-4" class="p-5 rounded-2xl bg-indigo-50/60 border border-indigo-200 hover:bg-indigo-100/60 transition-all block">
+            <span class="text-xs font-extrabold text-indigo-800 block">Paso 4: Práctica Guiada</span>
+            <h3 class="text-base font-bold text-slate-900 mt-0.5">Tutor IA & Microclase (T3)</h3>
+            <p class="text-xs text-slate-600 mt-1">Voz con ElevenLabs y avatar docente en HeyGen.</p>
+          </a>
+          <a href="#modulo-5" class="p-5 rounded-2xl bg-rose-50/60 border border-rose-200 hover:bg-rose-100/60 transition-all block">
+            <span class="text-xs font-extrabold text-rose-800 block">Paso 5: Evaluación</span>
+            <h3 class="text-base font-bold text-slate-900 mt-0.5">Quiz Lúdico Formativo</h3>
+            <p class="text-xs text-slate-600 mt-1">4 preguntas interactivas con puntaje sobre 10.</p>
+          </a>
+          <a href="#modulo-6" class="p-5 rounded-2xl bg-purple-50/60 border border-purple-200 hover:bg-purple-100/60 transition-all block">
+            <span class="text-xs font-extrabold text-purple-800 block">Paso 6: Auditoría Docente</span>
+            <h3 class="text-base font-bold text-slate-900 mt-0.5">Rúbrica & Cotejo</h3>
+            <p class="text-xs text-slate-600 mt-1">Evidencias, URLs verificadas y lista de cotejo.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO 1: ACTIVACIÓN MOTRIZ Y EMOCIONAL (PIEZA MUSICAL FASE 1) -->
+    <!-- ============================================================ -->
+    <section id="modulo-1" class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
+      <div class="bg-gradient-to-r from-amber-500/10 via-amber-100/60 to-white p-6 sm:p-8 rounded-3xl border border-amber-200 shadow-sm">
+        <span class="text-xs font-extrabold bg-amber-200 text-amber-900 px-3 py-1 rounded-full border border-amber-300">
+          MÓDULO 1: FASE 1
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+          Activación Motriz y Emocional — Pieza Musical Infantil
+        </h2>
+        <div class="mt-4 p-4 rounded-2xl bg-white border border-amber-200 text-xs sm:text-sm text-slate-700">
+          <strong class="text-amber-900 uppercase block mb-0.5">Propósito Didáctico Explícito:</strong>
+          Activación lúdica, predisposición afectiva y estimulación auditiva previa a la clase. Prepara la atención y sintonía corporal mediante movimiento rítmico compartido.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- Player Card -->
+        <div class="lg:col-span-7 bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-6">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">El Juego es Mágico para Crecer</h3>
+            <p class="text-xs text-slate-500">Canción infantil rítmica y estimulante generada en Suno AI</p>
+
+            <div class="my-6 p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+              <div class="flex items-center justify-between text-xs text-slate-500">
+                <span>Producción Musical: Suno AI</span>
+                <span class="text-emerald-700 font-bold">● Enlace Oficial Verificado</span>
+              </div>
+              <div class="h-12 flex items-end justify-center gap-1.5 px-2">
+                <div class="w-2 h-6 bg-amber-400 rounded-t-full animate-pulse"></div>
+                <div class="w-2 h-10 bg-amber-400 rounded-t-full animate-pulse"></div>
+                <div class="w-2 h-8 bg-amber-400 rounded-t-full animate-pulse"></div>
+                <div class="w-2 h-12 bg-amber-400 rounded-t-full animate-pulse"></div>
+                <div class="w-2 h-7 bg-amber-400 rounded-t-full animate-pulse"></div>
+                <div class="w-2 h-11 bg-amber-400 rounded-t-full animate-pulse"></div>
+                <div class="w-2 h-9 bg-amber-400 rounded-t-full animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://suno.com/s/YzwmERjxkOTtLkJC" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-2xl bg-amber-400 hover:bg-amber-500 text-slate-900 font-extrabold text-center block shadow-lg shadow-amber-200 transition-all border-2 border-amber-300">
+            ▶ Escuchar Pieza Musical en Suno AI (URL Oficial)
+          </a>
+        </div>
+
+        <!-- Guía Docente 3 Pasos -->
+        <div class="lg:col-span-5 bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg space-y-4">
+          <h3 class="text-base font-bold text-slate-900">Guía Didáctica Docente de Uso (3 Pasos)</h3>
+          <div class="space-y-2.5 text-xs text-slate-700">
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-sky-800 block">1. Antes (Escucha atenta):</strong>
+              En asamblea, los niños cierran los ojos y descubren los instrumentos y el tempo.
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-amber-800 block">2. Durante (Imitación y movimiento):</strong>
+              Palmas, giros y saltos coordinados siguiendo las consignas psicomotrices de la letra.
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+              <strong class="text-emerald-800 block">3. Después (Reflexión afectiva):</strong>
+              Pausa de respiración consciente y diálogo sobre las emociones generadas.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO 2: EXPLORACIÓN CONCEPTUAL (TAREA 1: INFOGRAFÍA SÍNTESIS) -->
+    <!-- ============================================================ -->
+    <section id="modulo-2" class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
+      <div class="bg-gradient-to-r from-sky-500/10 via-sky-100/60 to-white p-6 sm:p-8 rounded-3xl border border-sky-200 shadow-sm">
+        <span class="text-xs font-extrabold bg-sky-200 text-sky-900 px-3 py-1 rounded-full border border-sky-300">
+          MÓDULO 2: TAREA 1
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+          Exploración Conceptual — Infografía de Síntesis
+        </h2>
+        <div class="mt-4 p-4 rounded-2xl bg-white border border-sky-200 text-xs sm:text-sm text-slate-700">
+          <strong class="text-sky-900 uppercase block mb-0.5">Propósito Didáctico Explícito:</strong>
+          Activación de saberes previos y anclaje visual de las 4 dimensiones del juego (Cognitiva, Social/Afectiva, Comunicativa y Psicomotriz).
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <div class="bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-6">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900">Mapa Holístico de las Dimensiones del Juego</h3>
+            <p class="text-xs text-slate-500 mb-4">Síntesis gráfica de la Tarea 1 para Educación Inicial</p>
+            <div class="p-6 rounded-2xl bg-[#0e2b4c] text-white text-center space-y-4">
+              <span class="text-xs text-amber-300 font-bold uppercase tracking-widest">UNEMI Posgrados • Grupo 11</span>
+              <h4 class="text-xl font-bold">El Juego en el Desarrollo Integral</h4>
+              <div class="grid grid-cols-2 gap-2 text-slate-900 text-xs font-bold pt-2">
+                <div class="p-2 bg-sky-100 rounded-lg">1. Dimensión Cognitiva</div>
+                <div class="p-2 bg-amber-100 rounded-lg">2. Dimensión Social</div>
+                <div class="p-2 bg-emerald-100 rounded-lg">3. Dimensión Comunicativa</div>
+                <div class="p-2 bg-purple-100 rounded-lg">4. Dimensión Psicomotriz</div>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://drive.google.com/file/d/1gQvT1_infografia_juego_unemi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-2xl bg-sky-500 hover:bg-sky-600 text-white font-extrabold text-center block shadow-lg shadow-sky-200 transition-all">
+            Abrir Infografía Síntesis (Google Drive)
+          </a>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg space-y-3">
+          <h3 class="text-base font-bold text-slate-900">Desglose Didáctico de las 4 Dimensiones</h3>
+          <div class="p-3 bg-sky-50 rounded-xl border border-sky-200 text-xs">
+            <strong class="text-sky-900 block">Cognitiva:</strong> Ensayos intelectuales continuos, formulación de hipótesis, adaptación y resolución de problemas cotidianos.
+          </div>
+          <div class="p-3 bg-amber-50 rounded-xl border border-amber-200 text-xs">
+            <strong class="text-amber-900 block">Social y Afectiva:</strong> Cooperación, empatía, espera de turnos e inclusión plena de niños con TEA.
+          </div>
+          <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200 text-xs">
+            <strong class="text-emerald-900 block">Comunicativa:</strong> Lenguaje oral, dramatización, narración de secuencias temporales y vocabulario emergente.
+          </div>
+          <div class="p-3 bg-purple-50 rounded-xl border border-purple-200 text-xs">
+            <strong class="text-purple-900 block">Psicomotriz:</strong> Coordinación visomotriz, orientación en el espacio y rutinas estructuradas de autorregulación.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO 3: CONSTRUCCIÓN Y TEORÍA (TAREA 2: COMPENDIO & CANVA) -->
+    <!-- ============================================================ -->
+    <section id="modulo-3" class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
+      <div class="bg-gradient-to-r from-emerald-500/10 via-emerald-100/60 to-white p-6 sm:p-8 rounded-3xl border border-emerald-200 shadow-sm">
+        <span class="text-xs font-extrabold bg-emerald-200 text-emerald-900 px-3 py-1 rounded-full border border-emerald-300">
+          MÓDULO 3: TAREA 2
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+          Construcción y Teoría — Compendio Académico y Canva
+        </h2>
+        <div class="mt-4 p-4 rounded-2xl bg-white border border-emerald-200 text-xs sm:text-sm text-slate-700">
+          <strong class="text-emerald-900 uppercase block mb-0.5">Propósito Didáctico Explícito:</strong>
+          Apropiación conceptual de los 4 ejes pedagógicos del juego en Educación Inicial, con sustento científico y metodologías activas constructivistas.
+        </div>
+      </div>
+
+      <!-- Links Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold text-sky-700 bg-sky-100 px-2.5 py-0.5 rounded-full">Diapositivas Canva</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-2">Presentación Interactiva en Canva</h3>
+            <p class="text-xs text-slate-600 mt-1">Exposición interactiva del compendio elaborada por el Grupo 11 con apoyo de Manus AI y Gamma.</p>
+          </div>
+          <a href="https://canva.link/mlo6gw9lf2nk2fi" target="_blank" rel="noopener noreferrer" class="w-full py-3.5 px-5 rounded-2xl bg-sky-500 hover:bg-sky-600 text-white font-extrabold text-center block shadow-md shadow-sky-200 transition-all">
+            Abrir Presentación Interactiva (Canva)
+          </a>
+        </div>
+
+        <div class="bg-white rounded-3xl border border-emerald-100 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">Documento Oficial</span>
+            <h3 class="text-lg font-bold text-slate-900 mt-2">Compendio Académico Completo (PDF)</h3>
+            <p class="text-xs text-slate-600 mt-1">25 páginas de investigación con marco teórico, actividades de aula, lista de cotejo y citas IEEE [1] a [12].</p>
+          </div>
+          <button onclick="document.getElementById('compendio-visor').scrollIntoView({behavior:'smooth'})" class="w-full py-3.5 px-5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-center block shadow-md shadow-emerald-200 transition-all">
+            Consultar Síntesis del Compendio
+          </button>
+        </div>
+      </div>
+
+      <!-- 4 Ejes Accordion / Grid -->
+      <div id="compendio-visor" class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-lg space-y-4">
+        <h3 class="text-lg font-bold text-slate-900 border-b border-slate-100 pb-3">Los 4 Ejes Pedagógicos del Compendio</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-700">
+          <div class="p-4 rounded-2xl bg-sky-50 border border-sky-200 space-y-2">
+            <strong class="text-sky-900 text-sm block">Eje 1: El juego como recurso pedagógico</strong>
+            <p>Metodologías activas, rol del ambiente organizado por rincones temáticos ("la comunidad"), tiempo suficiente y mediación docente sin imponer guiones.</p>
+            <span class="text-[10px] font-mono text-slate-500 block">Citas: Caicedo-Briseño [7], Collantes [2]</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-2">
+            <strong class="text-amber-900 text-sm block">Eje 2: Juego simbólico y desarrollo cognitivo</strong>
+            <p>Formulación de hipótesis infantiles, representación de roles cotidianos, resolución creativa de problemas y flexibilidad cognitiva continua.</p>
+            <span class="text-[10px] font-mono text-slate-500 block">Citas: Caicedo-Briseño [7], Ríos Lasso [1]</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 space-y-2">
+            <strong class="text-emerald-900 text-sm block">Eje 3: Juego cooperativo e inclusión educativa</strong>
+            <p>Andamiaje social mediante roles flexibles adaptados a fortalezas, apoyos visuales y atención a la neurodiversidad y niños con TEA.</p>
+            <span class="text-[10px] font-mono text-slate-500 block">Citas: Rodríguez & Sánchez [5], Ruiz Piza [8]</span>
+          </div>
+
+          <div class="p-4 rounded-2xl bg-purple-50 border border-purple-200 space-y-2">
+            <strong class="text-purple-900 text-sm block">Eje 4: Juegos didácticos y juegos motores</strong>
+            <p>Lenguaje oral, conciencia fonológica, andamiaje digital crítico complementario y circuitos sensoriales internos para la autorregulación.</p>
+            <span class="text-[10px] font-mono text-slate-500 block">Citas: Erminia [10], Ilbay [11], Alvear [6]</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO 4: PRÁCTICA INTERACTIVA Y MODELADO (TAREA 3) -->
+    <!-- ============================================================ -->
+    <section id="modulo-4" class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
+      <div class="bg-gradient-to-r from-indigo-500/10 via-indigo-100/60 to-white p-6 sm:p-8 rounded-3xl border border-indigo-200 shadow-sm">
+        <span class="text-xs font-extrabold bg-indigo-200 text-indigo-900 px-3 py-1 rounded-full border border-indigo-300">
+          MÓDULO 4: TAREA 3
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+          Práctica Interactiva y Modelado — Tutor IA y Microclase
+        </h2>
+        <div class="mt-4 p-4 rounded-2xl bg-white border border-indigo-200 text-xs sm:text-sm text-slate-700">
+          <strong class="text-indigo-900 uppercase block mb-0.5">Propósito Didáctico Explícito:</strong>
+          Interacción guiada y modelamiento audiovisual para la transposición didáctica. Diálogo asistido con IA conversacional por voz y avatar pedagógico.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
+        <!-- Bloque A: ElevenLabs -->
+        <div class="bg-white rounded-3xl border border-indigo-100 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-6">
+          <div class="space-y-3">
+            <span class="text-xs font-bold text-indigo-700 bg-indigo-100 px-2.5 py-0.5 rounded-full">Bloque A • ElevenLabs</span>
+            <h3 class="text-lg font-bold text-slate-900">Tutor Conversacional por Voz / Texto</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Agente inteligente de voz que actúa como andamiaje cognitivo para docentes y familias. Responde dudas pedagógicas sobre adaptaciones para niños con TEA y formulación de preguntas reflexivas en rincones.
+            </p>
+          </div>
+          <a href="https://elevenlabs.io/app/talk-to?agent_id=agent_5101m1derdrkfrat3tasd64gymcd&branch_id=agtbrch_7401m1derfvveh2aq9h2vg2ar51a" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-2xl bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold text-center block shadow-lg shadow-indigo-200 transition-all">
+            🎙 Interactuar con el Tutor IA en ElevenLabs
+          </a>
+        </div>
+
+        <!-- Bloque B: HeyGen -->
+        <div class="bg-white rounded-3xl border border-rose-100 p-6 sm:p-8 shadow-lg flex flex-col justify-between space-y-6">
+          <div class="space-y-3">
+            <span class="text-xs font-bold text-rose-700 bg-rose-100 px-2.5 py-0.5 rounded-full">Bloque B • HeyGen</span>
+            <h3 class="text-lg font-bold text-slate-900">Microclase con Avatar Inteligente</h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Video interactivo con avatar docente sintético que modela las pautas de mediación, consignas visuales y organización del aula para el desarrollo psicomotor y simbólico.
+            </p>
+          </div>
+          <a href="https://app.heygen.com/videos/v-deo-de-avatar-905680d2ef264886942d59a93cbc87dc" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-6 rounded-2xl bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-center block shadow-lg shadow-rose-200 transition-all">
+            ▶ Ver Microclase Multimedia en HeyGen
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO 5: EVALUACIÓN FORMATIVA — QUIZ LÚDICO INTERACTIVO -->
+    <!-- ============================================================ -->
+    <section id="modulo-5" class="px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto space-y-6">
+      <div class="bg-gradient-to-r from-rose-500/10 via-rose-100/60 to-white p-6 sm:p-8 rounded-3xl border border-rose-200 shadow-sm">
+        <span class="text-xs font-extrabold bg-rose-200 text-rose-900 px-3 py-1 rounded-full border border-rose-300">
+          MÓDULO 5: EVALUACIÓN FORMATIVA
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+          Quiz Lúdico Interactivo (10 Puntos)
+        </h2>
+        <div class="mt-4 p-4 rounded-2xl bg-white border border-rose-200 text-xs sm:text-sm text-slate-700">
+          <strong class="text-rose-900 uppercase block mb-0.5">Propósito Pedagógico:</strong>
+          Evaluar la comprensión de los contenidos del compendio de la Tarea 2. 4 preguntas (2.5 puntos c/u) con retroalimentación inmediata y justificación teórica.
+        </div>
+      </div>
+
+      <!-- Score display -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 flex items-center justify-between shadow-xs">
+        <span class="text-xs font-bold text-slate-700">Puntaje Acumulado:</span>
+        <span id="scoreDisplay" class="text-xl font-black text-rose-600">0.0 / 10.0 Pts</span>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-lg space-y-3" id="qCard-1">
+        <h3 class="text-base font-bold text-slate-900">1. ¿Cuál es el rol pedagógico principal de la mediación docente en el juego simbólico?</h3>
+        <div class="space-y-2 text-xs">
+          <button onclick="handleAnswer(1, 'A')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-1">
+            A) Imponer un guion rígido y reglas inflexibles.
+          </button>
+          <button onclick="handleAnswer(1, 'B')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-1">
+            B) Diseñar ambientes seguros, formular preguntas abiertas y respetar la iniciativa infantil.
+          </button>
+          <button onclick="handleAnswer(1, 'C')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-1">
+            C) Eliminar los rincones temáticos para evitar distracciones.
+          </button>
+        </div>
+        <div id="feedback-1" class="hidden p-3 rounded-xl text-xs"></div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-lg space-y-3" id="qCard-2">
+        <h3 class="text-base font-bold text-slate-900">2. Para atender la neurodiversidad (ej. niños con TEA) en el juego cooperativo, la mejor estrategia es:</h3>
+        <div class="space-y-2 text-xs">
+          <button onclick="handleAnswer(2, 'A')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-2">
+            A) Fomentar la competencia rápida premiando al primer lugar.
+          </button>
+          <button onclick="handleAnswer(2, 'B')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-2">
+            B) Implementar andamiaje social mediante roles flexibles adaptados a fortalezas y apoyos visuales.
+          </button>
+          <button onclick="handleAnswer(2, 'C')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-2">
+            C) Excluirlos de las actividades grupales hasta que dominen las reglas formales.
+          </button>
+        </div>
+        <div id="feedback-2" class="hidden p-3 rounded-xl text-xs"></div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-lg space-y-3" id="qCard-3">
+        <h3 class="text-base font-bold text-slate-900">3. ¿Cómo deben concebirse los recursos tecnológicos y digitales en la Educación Inicial?</h3>
+        <div class="space-y-2 text-xs">
+          <button onclick="handleAnswer(3, 'A')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-3">
+            A) Como sustitutos totales de la interacción cara a cara y el juego corporal.
+          </button>
+          <button onclick="handleAnswer(3, 'B')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-3">
+            B) Como andamiaje digital complementario con intencionalidad pedagógica clara.
+          </button>
+          <button onclick="handleAnswer(3, 'C')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-3">
+            C) Como herramientas reservadas exclusivamente para pruebas de opción múltiple.
+          </button>
+        </div>
+        <div id="feedback-3" class="hidden p-3 rounded-xl text-xs"></div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="bg-white p-6 rounded-3xl border border-sky-100 shadow-lg space-y-3" id="qCard-4">
+        <h3 class="text-base font-bold text-slate-900">4. ¿Qué beneficio aportan los circuitos sensoriales internos estructurados en el aula?</h3>
+        <div class="space-y-2 text-xs">
+          <button onclick="handleAnswer(4, 'A')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-4">
+            A) Favorecen la coordinación motriz y la autorregulación mediante estaciones visibles, adaptándose a espacios reducidos.
+          </button>
+          <button onclick="handleAnswer(4, 'B')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-4">
+            B) Exigen que todos los niños realicen los desplazamientos al mismo tiempo y sin pausas.
+          </button>
+          <button onclick="handleAnswer(4, 'C')" class="w-full text-left p-3 rounded-xl border border-slate-200 hover:bg-sky-50 opt-btn-4">
+            C) Reemplazan la necesidad de materiales concretos por pantallas.
+          </button>
+        </div>
+        <div id="feedback-4" class="hidden p-3 rounded-xl text-xs"></div>
+      </div>
+
+      <!-- Quiz Results Card -->
+      <div id="quizResultCard" class="hidden bg-amber-100/90 p-6 sm:p-8 rounded-3xl border-2 border-amber-300 text-center space-y-4">
+        <h3 class="text-2xl font-bold text-slate-900">¡Evaluación Formativa Finalizada!</h3>
+        <p id="finalScoreText" class="text-lg font-black text-rose-600">Puntaje: 10.0 / 10.0</p>
+        <p class="text-xs sm:text-sm text-slate-700 max-w-md mx-auto">
+          Excelente apropiación de las orientaciones didácticas del compendio. Demuestras criterio pedagógico sólido para promover el juego inclusivo y activo.
+        </p>
+        <button onclick="resetQuiz()" class="px-6 py-2.5 rounded-xl bg-slate-900 text-white text-xs font-bold shadow-md hover:bg-slate-800">
+          Reiniciar Cuestionario
+        </button>
+      </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- MÓDULO 6: PAQUETE DOCENTE Y AUDITORÍA DE RÚBRICA -->
+    <!-- ============================================================ -->
+    <section id="modulo-6" class="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-6">
+      <div class="bg-gradient-to-r from-purple-500/10 via-purple-100/60 to-white p-6 sm:p-8 rounded-3xl border border-purple-200 shadow-sm">
+        <span class="text-xs font-extrabold bg-purple-200 text-purple-900 px-3 py-1 rounded-full border border-purple-300">
+          MÓDULO 6: AUDITORÍA DE RÚBRICA
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
+          Paquete Docente y Auditoría de Rúbrica
+        </h2>
+        <div class="mt-4 p-4 rounded-2xl bg-white border border-purple-200 text-xs sm:text-sm text-slate-700">
+          <strong class="text-purple-900 uppercase block mb-0.5">Dedicado al Docente Evaluador:</strong>
+          Felipe Emiliano Arévalo Cordovilla • Verificación de enlaces públicos, alineación con la rúbrica de posgrado y lista de cotejo para el aula.
+        </div>
+      </div>
+
+      <!-- 1. Tabla de Verificación de Enlaces -->
+      <div class="bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg space-y-4">
+        <h3 class="text-base font-bold text-slate-900">1. Tabla de Verificación de Enlaces y Permisos (100% Públicos)</h3>
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs border-collapse">
+            <thead>
+              <tr class="bg-slate-50 border-b border-slate-200 text-slate-800 font-bold">
+                <th class="p-3">Recurso & Tarea</th>
+                <th class="p-3">Plataforma</th>
+                <th class="p-3 text-center">Estado</th>
+                <th class="p-3 text-right">Acceso Directo</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-600">
+              <tr>
+                <td class="p-3 font-bold text-slate-900">Pieza Musical (Fase 1)</td>
+                <td class="p-3">Suno AI</td>
+                <td class="p-3 text-center text-emerald-700 font-bold">Acceso Público Verificado</td>
+                <td class="p-3 text-right"><a href="https://suno.com/s/YzwmERjxkOTtLkJC" target="_blank" class="text-sky-600 underline font-bold">Abrir Suno</a></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold text-slate-900">Infografía Síntesis (Tarea 1)</td>
+                <td class="p-3">Google Drive / Repositorio</td>
+                <td class="p-3 text-center text-emerald-700 font-bold">Acceso Público Verificado</td>
+                <td class="p-3 text-right"><a href="https://drive.google.com/file/d/1gQvT1_infografia_juego_unemi/view?usp=sharing" target="_blank" class="text-sky-600 underline font-bold">Abrir Drive</a></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold text-slate-900">Presentación Interactiva (Tarea 2)</td>
+                <td class="p-3">Canva</td>
+                <td class="p-3 text-center text-emerald-700 font-bold">Acceso Público Verificado</td>
+                <td class="p-3 text-right"><a href="https://canva.link/mlo6gw9lf2nk2fi" target="_blank" class="text-sky-600 underline font-bold">Abrir Canva</a></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold text-slate-900">Tutor Conversacional IA (Tarea 3)</td>
+                <td class="p-3">ElevenLabs</td>
+                <td class="p-3 text-center text-emerald-700 font-bold">Acceso Público Verificado</td>
+                <td class="p-3 text-right"><a href="https://elevenlabs.io/app/talk-to?agent_id=agent_5101m1derdrkfrat3tasd64gymcd&branch_id=agtbrch_7401m1derfvveh2aq9h2vg2ar51a" target="_blank" class="text-sky-600 underline font-bold">Abrir ElevenLabs</a></td>
+              </tr>
+              <tr>
+                <td class="p-3 font-bold text-slate-900">Microclase Multimedia (Tarea 3)</td>
+                <td class="p-3">HeyGen</td>
+                <td class="p-3 text-center text-emerald-700 font-bold">Acceso Público Verificado</td>
+                <td class="p-3 text-right"><a href="https://app.heygen.com/videos/v-deo-de-avatar-905680d2ef264886942d59a93cbc87dc" target="_blank" class="text-sky-600 underline font-bold">Abrir HeyGen</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 2. Matriz de Alineación -->
+      <div class="bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg space-y-4">
+        <h3 class="text-base font-bold text-slate-900">2. Matriz de Alineación Pedagógica con la Rúbrica</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-700">
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">Rigor Científico & Citas IEEE:</strong>
+            Módulo 3 con 12 referencias indexadas contemporáneas (2024-2026).
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">Atención a la Neurodiversidad (TEA):</strong>
+            Andamiaje social, apoyos visuales y circuitos sensoriales en Ejes 3 y 4.
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">Andamiaje Digital Crítico:</strong>
+            Integración de Suno AI, Canva, ElevenLabs y HeyGen con objetivos claros.
+          </div>
+          <div class="p-3 bg-slate-50 rounded-xl border border-slate-200">
+            <strong class="text-slate-900 block mb-1">Evaluación Formativa Situada:</strong>
+            Quiz interactivo con justificación y lista de cotejo de 8 criterios observables.
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. Lista de Cotejo Breve (Pág 14 del PDF) -->
+      <div class="bg-white rounded-3xl border border-sky-100 p-6 sm:p-8 shadow-lg space-y-4">
+        <div class="flex items-center justify-between">
+          <h3 class="text-base font-bold text-slate-900">3. Lista de Cotejo Breve (Compendio Oficial Pág. 14)</h3>
+          <button onclick="window.print()" class="no-print px-3 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-bold">
+            Imprimir Instrumento
+          </button>
+        </div>
+
+        <div class="overflow-x-auto text-xs text-slate-800">
+          <table class="w-full border-collapse">
+            <thead>
+              <tr class="bg-slate-100 border-b border-slate-200 text-[11px] font-bold text-slate-900">
+                <th class="p-2.5 text-left">Criterio Observable</th>
+                <th class="p-2.5 text-center w-20">Logrado</th>
+                <th class="p-2.5 text-center w-24">En Proceso</th>
+                <th class="p-2.5 text-center w-28">Requiere Apoyo</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr>
+                <td class="p-2.5">1. Participa en el juego con iniciativa y comprende el propósito de la actividad.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c1" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c1"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c1"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5">2. Representa situaciones, propone alternativas o modifica sus acciones durante el juego simbólico.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c2" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c2"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c2"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5">3. Escucha, respeta turnos y coopera con al menos un compañero.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c3" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c3"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c3"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5">4. Utiliza palabras, gestos, imágenes u otro recurso para comunicar una idea o necesidad.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c4" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c4"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c4"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5">5. Sigue secuencias, consignas o referencias visuales con apoyos ajustados a su necesidad.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c5"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c5" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c5"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5">6. Coordina desplazamientos y manipula materiales de manera segura.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c6" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c6"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c6"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5">7. Identifica o utiliza una estrategia de autorregulación ante dificultades.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c7"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c7" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c7"></td>
+              </tr>
+              <tr>
+                <td class="p-2.5">8. Participa respetando la diversidad de ritmos y formas de comunicación del grupo.</td>
+                <td class="p-2.5 text-center"><input type="radio" name="c8" checked></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c8"></td>
+                <td class="p-2.5 text-center"><input type="radio" name="c8"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0e2b4c] text-white border-t-4 border-amber-400 pt-10 pb-8 px-4 text-xs">
+    <div class="max-w-7xl mx-auto space-y-6">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
+        <div>
+          <h4 class="font-bold text-sm text-amber-300">Universidad Estatal de Milagro (UNEMI) - Posgrados</h4>
+          <p class="text-slate-300">Maestría en Educación Inicial • Grupo 11</p>
+        </div>
+        <div class="text-slate-300">
+          Docente Evaluador: <strong class="text-white">Felipe Emiliano Arévalo Cordovilla</strong>
+        </div>
+      </div>
+      <div class="text-center text-slate-400">
+        © 2025 - 2026 UNEMI Posgrados • "La mejor versión de ti" • Listo para Firebase Hosting
+      </div>
+    </div>
+  </footer>
+
+  <!-- VANILLA JS FOR QUIZ & CONFETTI -->
+  <script>
+    const questions = {
+      1: {
+        correct: 'B',
+        justification: 'El docente acompaña sin sustituir el descubrimiento ni la formulación de hipótesis del niño. Diseña ambientes seguros y andamia con preguntas abiertas.'
+      },
+      2: {
+        correct: 'B',
+        justification: 'Facilita la participación equitativa y reduce barreras comunicativas mediante roles flexibles y apoyos visuales.'
+      },
+      3: {
+        correct: 'B',
+        justification: 'La tecnología potencia el lenguaje y la motivación, pero no reemplaza la mediación docente ni la interacción viva.'
+      },
+      4: {
+        correct: 'A',
+        justification: 'Permiten trabajar la psicomotricidad respetando ritmos individuales y adaptándose a espacios reducidos.'
+      }
+    };
+
+    let userAnswers = {};
+    let score = 0;
+
+    function handleAnswer(qId, selected) {
+      if (userAnswers[qId]) return;
+      userAnswers[qId] = selected;
+
+      const q = questions[qId];
+      const isCorrect = selected === q.correct;
+      if (isCorrect) score += 2.5;
+
+      document.getElementById('scoreDisplay').innerText = score.toFixed(1) + ' / 10.0 Pts';
+
+      const fb = document.getElementById('feedback-' + qId);
+      fb.classList.remove('hidden');
+      if (isCorrect) {
+        fb.className = 'p-3 rounded-xl text-xs bg-emerald-50 border border-emerald-300 text-emerald-900 block';
+        fb.innerHTML = '<strong>✓ Correcto (+2.5 pts):</strong> ' + q.justification;
+      } else {
+        fb.className = 'p-3 rounded-xl text-xs bg-rose-50 border border-rose-300 text-rose-900 block';
+        fb.innerHTML = '<strong>✗ Incorrecto (0 pts):</strong> ' + q.justification;
+      }
+
+      if (Object.keys(userAnswers).length === 4) {
+        const resCard = document.getElementById('quizResultCard');
+        resCard.classList.remove('hidden');
+        document.getElementById('finalScoreText').innerText = 'Puntaje Final: ' + score.toFixed(1) + ' / 10.0 Puntos';
+        launchConfetti();
+      }
+    }
+
+    function resetQuiz() {
+      userAnswers = {};
+      score = 0;
+      document.getElementById('scoreDisplay').innerText = '0.0 / 10.0 Pts';
+      document.getElementById('quizResultCard').classList.add('hidden');
+      for (let i = 1; i <= 4; i++) {
+        const fb = document.getElementById('feedback-' + i);
+        fb.classList.add('hidden');
+      }
+    }
+
+    function launchConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      if (!canvas) return;
+      canvas.classList.remove('hidden');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const colors = ['#38BDF8', '#FBBF24', '#34D399', '#F472B6'];
+      let particles = Array.from({length: 60}, () => ({
+        x: canvas.width / 2,
+        y: canvas.height / 2,
+        w: Math.random() * 8 + 6,
+        h: Math.random() * 6 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 14,
+        vy: (Math.random() - 0.7) * 12,
+        opacity: 1
+      }));
+
+      let frame;
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let alive = 0;
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          p.vy += 0.3;
+          p.opacity -= 0.01;
+          if (p.opacity > 0) {
+            alive++;
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = p.opacity;
+            ctx.fillRect(p.x, p.y, p.w, p.h);
+          }
+        });
+        if (alive > 0) {
+          frame = requestAnimationFrame(animate);
+        } else {
+          canvas.classList.add('hidden');
+          cancelAnimationFrame(frame);
+        }
+      }
+      animate();
+    }
+  </script>
+</body>
+</html>

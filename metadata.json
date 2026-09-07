@@ -1,0 +1,6 @@
+{
+  "name": "Ecosistema Lúdico Pedagógico - UNEMI Posgrados",
+  "description": "Plataforma interactiva del Grupo 11 para la Maestría en Educación Inicial de UNEMI: El juego y su aporte al desarrollo integral.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

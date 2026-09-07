@@ -1,0 +1,278 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&amp;display=swap');
+      text { font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; }
+      .title { font-size: 38px; font-weight: 900; fill: #0f172a; letter-spacing: -0.5px; }
+      .section-header { font-size: 20px; font-weight: 900; fill: #0f172a; letter-spacing: 0.5px; }
+      .card-title { font-size: 14px; font-weight: 800; fill: #0f172a; }
+      .card-body { font-size: 12px; font-weight: 500; fill: #334155; line-height: 1.4; }
+      .badge-text { font-size: 11px; font-weight: 800; fill: #0284c7; }
+    </style>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <!-- Main Infographic Title -->
+  <text x="800" y="62" text-anchor="middle" class="title">El Viaje de la IA: Transformando la Educación del Siglo XXI</text>
+
+  <!-- ======================================================== -->
+  <!-- PANEL 1: EVOLUCIÓN Y CLASIFICACIÓN DE LA IA (LEFT)      -->
+  <!-- ======================================================== -->
+  <g transform="translate(30, 100)">
+    <rect width="490" height="760" rx="20" fill="#f0fdf4" stroke="#0f172a" stroke-width="2.5"/>
+    <text x="245" y="42" text-anchor="middle" class="section-header">EVOLUCIÓN Y CLASIFICACIÓN DE LA IA</text>
+
+    <!-- Gear & Brain Icon -->
+    <g transform="translate(245, 120)">
+      <circle cx="-16" cy="0" r="32" fill="#bae6fd" stroke="#0f172a" stroke-width="2.5"/>
+      <circle cx="-16" cy="0" r="14" fill="#ffffff" stroke="#0f172a" stroke-width="2"/>
+      <path d="M 0 -25 C 25 -25 38 -10 38 0 C 38 15 25 25 0 25 Z" fill="#fca5a5" stroke="#0f172a" stroke-width="2.5"/>
+    </g>
+
+    <!-- Slider & El Punto de Inflexión -->
+    <g transform="translate(45, 195)">
+      <rect x="0" y="0" width="400" height="12" rx="6" fill="#e2e8f0" stroke="#0f172a" stroke-width="1.5"/>
+      <rect x="0" y="0" width="220" height="12" rx="6" fill="#c084fc"/>
+      <circle cx="220" cy="6" r="12" fill="#fbbf24" stroke="#0f172a" stroke-width="2"/>
+      
+      <text x="200" y="40" text-anchor="middle" class="card-title">EL PUNTO DE INFLEXIÓN (2021-2024)</text>
+      <text x="200" y="60" text-anchor="middle" class="card-body">La pandemia aceleró la transición de una fase</text>
+      <text x="200" y="76" text-anchor="middle" class="card-body">exploratoria a una madurez tecnológica exponencial.</text>
+    </g>
+
+    <!-- Balanza / Scales of Justice -->
+    <g transform="translate(245, 335)">
+      <path d="M 0 0 L 0 50 M -90 15 L 90 15 M -90 15 L -115 50 L -65 50 Z M 90 15 L 65 50 L 115 50 Z" stroke="#0f172a" stroke-width="2.5" fill="none"/>
+      <circle cx="0" cy="0" r="6" fill="#0f172a"/>
+    </g>
+
+    <!-- IA Débil vs IA Generativa -->
+    <g transform="translate(25, 410)">
+      <!-- Left: IA Débil -->
+      <g transform="translate(20, 0)">
+        <!-- Robot Arm Icon -->
+        <g transform="translate(50, 40)">
+          <path d="M -30 25 L -10 -15 L 20 0 L 40 -20" stroke="#0f172a" stroke-width="3" fill="none"/>
+          <rect x="-35" y="25" width="30" height="12" rx="2" fill="#cbd5e1" stroke="#0f172a" stroke-width="2"/>
+          <rect x="25" y="-30" width="16" height="16" rx="2" fill="#f87171" stroke="#0f172a" stroke-width="2"/>
+        </g>
+        <text x="75" y="115" text-anchor="middle" class="card-title">IA DÉBIL</text>
+        <text x="75" y="135" text-anchor="middle" class="card-body">Mientras la IA débil realiza</text>
+        <text x="75" y="150" text-anchor="middle" class="card-body">tareas específicas...</text>
+      </g>
+
+      <!-- Right: IA Generativa -->
+      <g transform="translate(240, 0)">
+        <!-- Creative Icons: Book, lightbulb, notes -->
+        <g transform="translate(85, 40)">
+          <path d="M -25 20 C -25 5 0 5 0 20 C 0 5 25 5 25 20 Z" fill="#fed7aa" stroke="#0f172a" stroke-width="2"/>
+          <circle cx="0" cy="-15" r="14" fill="#fde047" stroke="#0f172a" stroke-width="2"/>
+          <path d="M 28 -10 L 28 5 M 28 -10 L 38 -5" stroke="#0f172a" stroke-width="2"/>
+          <rect x="-35" y="-20" width="16" height="14" rx="2" fill="#93c5fd" stroke="#0f172a" stroke-width="1.5"/>
+        </g>
+        <text x="95" y="115" text-anchor="middle" class="card-title">IA GENERATIVA</text>
+        <text x="95" y="135" text-anchor="middle" class="card-body">la generativa crea contenido</text>
+        <text x="95" y="150" text-anchor="middle" class="card-body">didáctico de alta calidad.</text>
+      </g>
+    </g>
+
+    <!-- Bottom: Un Hito Histórico -->
+    <g transform="translate(25, 615)">
+      <rect x="0" y="0" width="440" height="110" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <!-- Scroll & Factory Icon -->
+      <g transform="translate(55, 55)">
+        <rect x="-35" y="-30" width="30" height="42" rx="3" fill="#fef08a" stroke="#0f172a" stroke-width="2"/>
+        <line x1="-28" y1="-20" x2="-12" y2="-20" stroke="#0f172a" stroke-width="2"/>
+        <line x1="-28" y1="-10" x2="-12" y2="-10" stroke="#0f172a" stroke-width="2"/>
+        <path d="M 5 12 L 5 -15 L 20 -5 L 20 -15 L 35 -5 L 35 12 Z" fill="#94a3b8" stroke="#0f172a" stroke-width="2"/>
+      </g>
+      <text x="120" y="42" class="card-title">UN HITO HISTÓRICO:</text>
+      <text x="120" y="64" class="card-body">Su impacto se compara con hitos como la</text>
+      <text x="120" y="82" class="card-body">revolución industrial o la invención de la imprenta.</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- PANEL 2: EL MOTOR TECNOLÓGICO DEL APRENDIZAJE (TOP RIGHT)-->
+  <!-- ======================================================== -->
+  <g transform="translate(545, 100)">
+    <rect width="1025" height="340" rx="20" fill="#f0fdfa" stroke="#0f172a" stroke-width="2.5"/>
+    <text x="512" y="42" text-anchor="middle" class="section-header">EL MOTOR TECNOLÓGICO DEL APRENDIZAJE</text>
+
+    <!-- Column 1: Machine Learning & Redes Neuronales -->
+    <g transform="translate(35, 75)">
+      <rect width="300" height="235" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <!-- Brain network icon -->
+      <g transform="translate(150, 50)">
+        <ellipse cx="0" cy="0" rx="32" ry="24" fill="#99f6e4" stroke="#0f172a" stroke-width="2.5"/>
+        <circle cx="-16" cy="-8" r="4" fill="#0d9488"/>
+        <circle cx="14" cy="-6" r="4" fill="#0d9488"/>
+        <circle cx="0" cy="10" r="4" fill="#0d9488"/>
+        <line x1="-16" y1="-8" x2="14" y2="-6" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="-16" y1="-8" x2="0" y2="10" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="14" y1="-6" x2="0" y2="10" stroke="#0f172a" stroke-width="1.5"/>
+      </g>
+      <text x="150" y="112" text-anchor="middle" class="card-title">MACHINE LEARNING Y</text>
+      <text x="150" y="128" text-anchor="middle" class="card-title">REDES NEURONALES</text>
+      <text x="150" y="154" text-anchor="middle" class="card-body">Los algoritmos emulan al cerebro</text>
+      <text x="150" y="172" text-anchor="middle" class="card-body">humano para aprender de datos</text>
+      <text x="150" y="190" text-anchor="middle" class="card-body">y ajustar estrategias dinámicamente.</text>
+    </g>
+
+    <!-- Column 2: PLN -->
+    <g transform="translate(362, 75)">
+      <rect width="300" height="235" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <!-- Mic & translation icon -->
+      <g transform="translate(150, 50)">
+        <rect x="-30" y="-20" width="20" height="32" rx="10" fill="#93c5fd" stroke="#0f172a" stroke-width="2"/>
+        <path d="M -35 -5 C -35 15 -5 15 -5 -5" stroke="#0f172a" stroke-width="2" fill="none"/>
+        <line x1="-20" y1="15" x2="-20" y2="25" stroke="#0f172a" stroke-width="2"/>
+        <!-- Chat bubbles -->
+        <rect x="5" y="-22" width="34" height="24" rx="4" fill="#fde047" stroke="#0f172a" stroke-width="2"/>
+        <text x="15" y="-6" font-size="10" font-weight="bold" fill="#0f172a">文A</text>
+      </g>
+      <text x="150" y="112" text-anchor="middle" class="card-title">PROCESAMIENTO DEL</text>
+      <text x="150" y="128" text-anchor="middle" class="card-title">LENGUAJE NATURAL (PLN)</text>
+      <text x="150" y="154" text-anchor="middle" class="card-body">Permite que las máquinas</text>
+      <text x="150" y="172" text-anchor="middle" class="card-body">comprendan y generen lenguaje</text>
+      <text x="150" y="190" text-anchor="middle" class="card-body">humano coherente para tutoría autónoma.</text>
+    </g>
+
+    <!-- Column 3: Toma de Decisiones -->
+    <g transform="translate(690, 75)">
+      <rect width="300" height="235" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <!-- Decision tree flowchart icon -->
+      <g transform="translate(150, 50)">
+        <rect x="-24" y="-24" width="24" height="16" fill="#7dd3fc" stroke="#0f172a" stroke-width="2"/>
+        <polygon points="0,4 16,16 0,28 -16,16" fill="#fca5a5" stroke="#0f172a" stroke-width="2"/>
+        <circle cx="28" cy="22" r="10" fill="#fde047" stroke="#0f172a" stroke-width="2"/>
+        <line x1="-12" y1="-8" x2="0" y2="4" stroke="#0f172a" stroke-width="2"/>
+        <line x1="16" y1="16" x2="24" y2="16" stroke="#0f172a" stroke-width="2"/>
+      </g>
+      <text x="150" y="112" text-anchor="middle" class="card-title">TOMA DE DECISIONES</text>
+      <text x="150" y="128" text-anchor="middle" class="card-title">AUTOMATIZADA</text>
+      <text x="150" y="154" text-anchor="middle" class="card-body">La IA analiza patrones en tiempo</text>
+      <text x="150" y="172" text-anchor="middle" class="card-body">real para proponer intervenciones</text>
+      <text x="150" y="190" text-anchor="middle" class="card-body">pedagógicas precisas y oportunas.</text>
+    </g>
+  </g>
+
+  <!-- ======================================================== -->
+  <!-- PANEL 3: IMPACTO EN EL AULA E INCLUSIÓN (BOTTOM RIGHT)   -->
+  <!-- ======================================================== -->
+  <g transform="translate(545, 465)">
+    <rect width="1025" height="395" rx="20" fill="#fffbeb" stroke="#0f172a" stroke-width="2.5"/>
+    <text x="512" y="42" text-anchor="middle" class="section-header">IMPACTO EN EL AULA E INCLUSIÓN</text>
+
+    <!-- Sub-block 1: Personalización Radical del Contenido -->
+    <g transform="translate(35, 70)">
+      <rect width="280" height="295" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <!-- Student with tablet illustration -->
+      <g transform="translate(140, 65)">
+        <!-- Video badge & document badge -->
+        <rect x="-70" y="-45" width="28" height="20" rx="4" fill="#60a5fa" stroke="#0f172a" stroke-width="1.5"/>
+        <polygon points="-58,-38 -58,-32 -52,-35" fill="#ffffff"/>
+        <rect x="35" y="-35" width="24" height="30" rx="3" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.5"/>
+        <!-- Desk & Student -->
+        <circle cx="-10" cy="-10" r="14" fill="#fdba74" stroke="#0f172a" stroke-width="2"/>
+        <path d="M -22 18 C -22 4 2 4 2 18 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="2"/>
+        <rect x="-35" y="18" width="55" height="12" rx="2" fill="#bbf7d0" stroke="#0f172a" stroke-width="2"/>
+        <line x1="-30" y1="30" x2="-30" y2="45" stroke="#0f172a" stroke-width="2.5"/>
+        <line x1="15" y1="30" x2="15" y2="45" stroke="#0f172a" stroke-width="2.5"/>
+      </g>
+      <text x="140" y="155" text-anchor="middle" class="card-title">PERSONALIZACIÓN RADICAL</text>
+      <text x="140" y="172" text-anchor="middle" class="card-title">DEL CONTENIDO</text>
+      <text x="140" y="200" text-anchor="middle" class="card-body">Se ajustan ritmos, estilos y formatos</text>
+      <text x="140" y="218" text-anchor="middle" class="card-body">de aprendizaje a las características</text>
+      <text x="140" y="236" text-anchor="middle" class="card-body">individuales del alumno.</text>
+    </g>
+
+    <!-- Sub-block 2: Estadísticas Experimentales / Bar Charts -->
+    <g transform="translate(340, 70)">
+      <rect width="380" height="295" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      
+      <!-- Top Chart: Éxito en NEE -->
+      <g transform="translate(25, 25)">
+        <text x="175" y="18" class="card-title">ÉXITO EN NECESIDADES</text>
+        <text x="175" y="34" class="card-title">ESPECIALES (NEE)</text>
+        <text x="175" y="52" class="card-body">En estudios experimentales, el</text>
+        <text x="175" y="68" class="card-body">desempeño académico subió de</text>
+        <text x="175" y="84" class="card-body">una media de <tspan font-weight="bold">64.8 a 78.2</tspan>.</text>
+
+        <!-- Bars NEE -->
+        <g transform="translate(15, 20)">
+          <!-- Axis -->
+          <line x1="0" y1="85" x2="135" y2="85" stroke="#94a3b8" stroke-width="1.5"/>
+          <!-- Pretest bar: 64.8 -->
+          <text x="24" y="28" font-size="12" font-weight="900" text-anchor="middle" fill="#0f172a">64.8</text>
+          <rect x="8" y="32" width="32" height="53" rx="3" fill="#67e8f9" stroke="#0f172a" stroke-width="1.5"/>
+          <text x="24" y="98" font-size="8.5" font-weight="700" text-anchor="middle" fill="#64748b">Media Pretest</text>
+
+          <!-- Postest bar: 78.2 -->
+          <text x="88" y="10" font-size="12" font-weight="900" text-anchor="middle" fill="#0f172a">78.2</text>
+          <rect x="72" y="14" width="32" height="71" rx="3" fill="#fbbf24" stroke="#0f172a" stroke-width="1.5"/>
+          <text x="88" y="98" font-size="8.5" font-weight="700" text-anchor="middle" fill="#64748b">Media Postest</text>
+        </g>
+      </g>
+
+      <!-- Bottom Chart: Grupo Experimental vs Control -->
+      <g transform="translate(45, 175)">
+        <line x1="0" y1="65" x2="290" y2="65" stroke="#94a3b8" stroke-width="1.5"/>
+        
+        <!-- Experimental Bar: 78.2 -->
+        <g transform="translate(50, 0)">
+          <text x="20" y="0" font-size="13" font-weight="900" text-anchor="middle" fill="#0f172a">78.2</text>
+          <rect x="5" y="4" width="30" height="61" rx="3" fill="#fbbf24" stroke="#0f172a" stroke-width="1.5"/>
+          <!-- Teacher/student avatar mini -->
+          <circle cx="20" cy="78" r="7" fill="#cbd5e1" stroke="#0f172a" stroke-width="1.5"/>
+          <path d="M 12 92 C 12 85 28 85 28 92 Z" fill="#3b82f6" stroke="#0f172a" stroke-width="1.5"/>
+          <text x="20" y="104" font-size="9" font-weight="800" text-anchor="middle" fill="#0f172a">GRUPO EXPERIMENTAL</text>
+          <text x="20" y="114" font-size="8" font-weight="700" text-anchor="middle" fill="#0284c7">(CON IA)</text>
+        </g>
+
+        <!-- Control Bar: 66.7 -->
+        <g transform="translate(190, 0)">
+          <text x="20" y="14" font-size="13" font-weight="900" text-anchor="middle" fill="#0f172a">66.7</text>
+          <rect x="5" y="18" width="30" height="47" rx="3" fill="#bfdbfe" stroke="#0f172a" stroke-width="1.5"/>
+          <!-- Traditional avatar mini -->
+          <circle cx="20" cy="78" r="7" fill="#e2e8f0" stroke="#0f172a" stroke-width="1.5"/>
+          <path d="M 12 92 C 12 85 28 85 28 92 Z" fill="#64748b" stroke="#0f172a" stroke-width="1.5"/>
+          <text x="20" y="104" font-size="9" font-weight="800" text-anchor="middle" fill="#0f172a">GRUPO DE CONTROL</text>
+          <text x="20" y="114" font-size="8" font-weight="700" text-anchor="middle" fill="#64748b">(TRADICIONAL)</text>
+        </g>
+      </g>
+    </g>
+
+    <!-- Sub-block 3: El Mentor Digital -->
+    <g transform="translate(745, 70)">
+      <rect width="245" height="295" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <!-- Robot Tutor Icon -->
+      <g transform="translate(122, 60)">
+        <rect x="-24" y="-24" width="48" height="38" rx="8" fill="#93c5fd" stroke="#0f172a" stroke-width="2.5"/>
+        <circle cx="-10" cy="-6" r="4" fill="#0f172a"/>
+        <circle cx="10" cy="-6" r="4" fill="#0f172a"/>
+        <path d="M -6 5 Q 0 9 6 5" stroke="#0f172a" stroke-width="2" fill="none"/>
+        <rect x="-18" y="18" width="36" height="30" rx="6" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
+        <circle cx="0" cy="33" r="7" fill="#38bdf8"/>
+        <!-- Dialogue & Checklist -->
+        <rect x="28" y="-30" width="22" height="16" rx="3" fill="#fde047" stroke="#0f172a" stroke-width="1.5"/>
+        <rect x="25" y="8" width="24" height="32" rx="3" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"/>
+        <line x1="30" y1="16" x2="44" y2="16" stroke="#22c55e" stroke-width="1.5"/>
+        <line x1="30" y1="24" x2="44" y2="24" stroke="#22c55e" stroke-width="1.5"/>
+      </g>
+      <text x="122" y="155" text-anchor="middle" class="card-title">EL MENTOR DIGITAL</text>
+      <text x="122" y="182" text-anchor="middle" class="card-body">Actúa como un tutor</text>
+      <text x="122" y="200" text-anchor="middle" class="card-body">inteligente que ofrece</text>
+      <text x="122" y="218" text-anchor="middle" class="card-body">retroalimentación inmediata y</text>
+      <text x="122" y="236" text-anchor="middle" class="card-body">fomenta la autonomía estudiantil.</text>
+    </g>
+
+    <!-- NotebookLM watermark -->
+    <text x="1000" y="380" font-size="10" font-weight="700" fill="#94a3b8" text-anchor="end">Gemini Notebook</text>
+  </g>
+</svg>
